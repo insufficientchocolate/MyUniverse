@@ -1,3 +1,0 @@
-[submodule "vendor/MoltenVK"]
-	path = vendor/MoltenVK
-	url = https://github.com/KhronosGroup/MoltenVK.git
