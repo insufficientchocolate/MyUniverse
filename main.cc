@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <iostream>
+#include "window_manager.hpp"
 
 const int kDefaultWindowWidth = 800;
 const int kDefaultWindowHeight = 600;
@@ -8,7 +9,6 @@ static void mainLoop() {
   while (true) {
     SDL_Event event;
     while (SDL_WaitEvent(&event)) {
-      std::cout << event.type << std::endl;
       switch (event.type) {
         case SDL_MOUSEMOTION:
           std::cout << "(" << event.motion.x << "," << event.motion.y << ")"
@@ -29,7 +29,9 @@ int main(int argc, char** argv) {
   SDL_Window* mainWindow = SDL_CreateWindow(
       "MyUniverse", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
       kDefaultWindowWidth, kDefaultWindowHeight,
-      SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+      SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+  Universe::Graphic::WindowManager{mainWindow};
+
   mainLoop();
 
   SDL_Quit();
