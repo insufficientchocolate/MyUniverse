@@ -11,9 +11,13 @@ project(MyUniverse)
 
 hunter_add_package(SDL2)
 hunter_add_package(glew)
+hunter_add_package(Boost COMPONENTS filesystem)
+
 find_package(SDL2 CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(glew CONFIG REQUIRED)
+find_package(Boost CONFIG REQUIRED COMPONENTS filesystem)
+
 add_executable(
 		"${CMAKE_PROJECT_NAME}"
 		main.cc
@@ -26,5 +30,9 @@ add_executable(
         main_render.hpp
         main_render.cc
 )
-target_link_libraries("${CMAKE_PROJECT_NAME}" SDL2::SDL2 OpenGL::GL glew::glew)
+target_link_libraries(
+  "${CMAKE_PROJECT_NAME}"
+  SDL2::SDL2
+  OpenGL::GL glew::glew
+  Boost::filesystem)
 format("${CMAKE_PROJECT_NAME}")
