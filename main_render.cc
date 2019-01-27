@@ -27,7 +27,10 @@ void MainRender::initContext(SDL_Window* window) {
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void MainRender::render() { drawTriangle(); }
+void MainRender::render() {
+  clean();
+  drawTriangle();
+}
 
 void MainRender::drawTriangle() {
   glEnableVertexAttribArray(0);
@@ -36,4 +39,5 @@ void MainRender::drawTriangle() {
   glDrawArrays(GL_TRIANGLES, 0, 3);
   glDisableVertexAttribArray(0);
 }
+void MainRender::clean() { glClear(GL_COLOR_BUFFER_BIT); }
 };  // namespace Universe

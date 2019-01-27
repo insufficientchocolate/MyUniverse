@@ -13,6 +13,7 @@ class MainRender {
  private:
   void drawTriangle();
   void initContext(SDL_Window* window);
+  void clean();
   GLuint vao_;
   GLuint triangleBuffer_;
 };
