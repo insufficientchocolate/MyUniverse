@@ -23,6 +23,8 @@ add_executable(
         error.cc
         sdl_error.hpp
         sdl_error.cc
+        main_render.hpp
+        main_render.cc
 )
 target_link_libraries("${CMAKE_PROJECT_NAME}" SDL2::SDL2 OpenGL::GL glew::glew)
 format("${CMAKE_PROJECT_NAME}")

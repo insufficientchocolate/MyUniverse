@@ -11,7 +11,6 @@ class WindowManager {
  private:
   bool running_;
   void startRenderingThread();
-  void renderingLoop();
   SDL_Window* window_;
 };
 };  // namespace Universe::Graphic
