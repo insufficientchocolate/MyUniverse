@@ -1,5 +1,7 @@
 #include <SDL.h>
+#include <exception>
 #include <iostream>
+#include "error.hpp"
 #include "window_manager.hpp"
 
 const int kDefaultWindowWidth = 800;
@@ -21,7 +23,7 @@ static void mainLoop() {
   }
 }
 
-int main(int argc, char** argv) {
+static int realMain(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) != 0) {
     SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
     return 1;
@@ -35,4 +37,15 @@ int main(int argc, char** argv) {
   mainLoop();
 
   SDL_Quit();
+  return 0;
+}
+
+int main(int argc, char** argv) {
+  try {
+    return realMain(argc, argv);
+  } catch (const std::runtime_error& e) {
+    std::cout << e.what() << std::endl;
+  } catch (const Universe::Errors::Error& e) {
+    std::cout << e.what() << std::endl;
+  }
 }

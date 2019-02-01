@@ -1,5 +1,6 @@
 #include "window_manager.hpp"
 #include <chrono>
+#include <iostream>
 #include <stdexcept>
 #include "error.hpp"
 #include "main_render.hpp"
@@ -11,11 +12,15 @@ WindowManager::WindowManager(SDL_Window* window)
 }
 void WindowManager::startRenderingThread() {
   std::thread t([&] {
-    MainRender render(window_);
-    while (running_) {
-      render.render();
-      SDL_GL_SwapWindow(window_);
-      std::this_thread::sleep_for(std::chrono::seconds(1));
+    try {
+      MainRender render(window_);
+      while (running_) {
+        render.render();
+        SDL_GL_SwapWindow(window_);
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+      }
+    } catch (const std::runtime_error& e) {
+      std::cout << e.what() << std::endl;
     }
   });
   t.detach();

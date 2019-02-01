@@ -1,5 +1,6 @@
 #include "gl_program_manager.hpp"
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <vector>
 #include "error.hpp"
@@ -20,8 +21,15 @@ static GLuint compileShader(const std::string& source, GLenum shaderType) {
     glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLength);
     std::vector<char> errorMessage(logLength + 1);
     glGetShaderInfoLog(shader, logLength, nullptr, &errorMessage[0]);
-    std::string error(errorMessage.begin(), errorMessage.end());
-    throw Errors::Error("OpenGL", error);
+    std::stringstream error;
+    if (shaderType == GL_VERTEX_SHADER) {
+      error << "vertex";
+    } else {
+      error << "fragment";
+    }
+    error << "shader compilation failed:\n";
+    error << std::string(errorMessage.begin(), errorMessage.end());
+    throw Errors::Error("OpenGL", error.str());
   }
   return shader;
 }
@@ -49,10 +57,13 @@ GLuint GLProgramManager::compileProgram(const std::string& vertexPath,
 }
 
 const std::string GLProgramManager::loadSource(const std::string& path) const {
-  std::fstream fin((sourceDir_ / path).native());
-  fin.exceptions(std::fstream::badbit);
-  std::stringstream ss;
-  ss << fin.rdbuf();
-  return ss.str();
+  std::ifstream fin;
+  fin.exceptions(std::ifstream::badbit);
+  fin.open((sourceDir_ / path).native(), std::ios::in | std::ios::ate);
+  size_t fileSize = fin.tellg();
+  fin.seekg(0, std::ios::beg);
+  char buffer[fileSize];
+  fin.read(buffer, fileSize);
+  return std::string(buffer);
 }
 }  // namespace Universe
