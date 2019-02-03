@@ -32,11 +32,12 @@ add_executable(
         main_render.cc
 		gl_program_manager.hpp
 		gl_program_manager.cc
+		events.hpp
 )
 target_link_libraries(
   "${CMAKE_PROJECT_NAME}"
   SDL2::SDL2
   OpenGL::GL glew::glew
   Boost::filesystem)
-target_compile_definitions("${CMAKE_PROJECT_NAME}" PRIVATE BOOST_ERROR_CODE_HEADER_ONLY)
+target_compile_definitions("${CMAKE_PROJECT_NAME}" PRIVATE BOOST_ERROR_CODE_HEADER_ONLY DBOOST_SYSTEM_NO_DEPRECATE)
 format("${CMAKE_PROJECT_NAME}")
