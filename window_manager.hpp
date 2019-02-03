@@ -12,6 +12,7 @@ class WindowManager {
   bool running_;
   void startRenderingThread();
   SDL_Window* window_;
+  std::unique_ptr<std::thread> renderingThread_;
 };
 };  // namespace Universe::Graphic
 #endif

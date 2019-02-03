@@ -11,7 +11,7 @@ WindowManager::WindowManager(SDL_Window* window)
   startRenderingThread();
 }
 void WindowManager::startRenderingThread() {
-  std::thread t([&] {
+  renderingThread_ = std::make_unique<std::thread>([&] {
     try {
       MainRender render(window_);
       while (running_) {
@@ -23,6 +23,5 @@ void WindowManager::startRenderingThread() {
       std::cout << e.what() << std::endl;
     }
   });
-  t.detach();
 }
 }  // namespace Universe::Graphic
