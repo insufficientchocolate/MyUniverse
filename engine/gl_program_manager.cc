@@ -1,9 +1,10 @@
-#include "gl_program_manager.hpp"
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include "error.hpp"
+
+#include <universe/engine/gl_program_manager.hpp>
+#include <universe/engine/error.hpp>
 
 namespace Universe {
 GLProgramManager::GLProgramManager(const std::string& shaderDirectory)

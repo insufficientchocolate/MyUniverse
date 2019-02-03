@@ -1,9 +1,9 @@
-#include "window_manager.hpp"
 #include <chrono>
 #include <iostream>
 #include <stdexcept>
-#include "error.hpp"
-#include "main_render.hpp"
+#include <universe/engine/error.hpp>
+#include <universe/engine/window_manager.hpp>
+#include <universe/engine/main_render.hpp>
 
 namespace Universe::Graphic {
 WindowManager::WindowManager(SDL_Window* window)

@@ -11,23 +11,23 @@ find_package(Boost CONFIG REQUIRED COMPONENTS filesystem)
 
 add_library(
   "${PROJECT_NAME}"
-  include/window_manager.hpp
   window_manager.cc
-  include/error.hpp
   error.cc
-  include/sdl_error.hpp
   sdl_error.cc
-  include/main_render.hpp
   main_render.cc
-  include/gl_program_manager.hpp
   gl_program_manager.cc
-  include/events.hpp
+  include/universe/engine/error.hpp
+  include/universe/engine/gl_program_manager.hpp
+  include/universe/engine/sdl_error.hpp
+  include/universe/engine/main_render.hpp
+  include/universe/engine/window_manager.hpp
 )
 
 target_link_libraries(
   "${PROJECT_NAME}"
   SDL2::SDL2
-  OpenGL::GL glew::glew
+  OpenGL::GL
+  glew::glew
   Boost::filesystem)
 
 target_include_directories("${PROJECT_NAME}" PUBLIC $<BUILD_INTERFACE: include> $<INSTALL_INTERFACE: include>)

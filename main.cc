@@ -1,8 +1,8 @@
 #include <SDL.h>
 #include <exception>
 #include <iostream>
-#include "error.hpp"
-#include "window_manager.hpp"
+#include <universe/engine/error.hpp>
+#include <universe/engine/window_manager.hpp>
 
 const int kDefaultWindowWidth = 800;
 const int kDefaultWindowHeight = 600;

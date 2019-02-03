@@ -1,6 +1,7 @@
-#include "main_render.hpp"
 #include <SDL.h>
-#include "sdl_error.hpp"
+#include <universe/engine/sdl_error.hpp>
+#include <universe/engine/main_render.hpp>
+
 
 namespace Universe {
 static const GLfloat bufferData[] = {

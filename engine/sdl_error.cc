@@ -1,6 +1,6 @@
-#include "sdl_error.hpp"
 #include <SDL.h>
 #include <sstream>
+#include <universe/engine/sdl_error.hpp>
 
 namespace Universe::Errors {
 static const char* kSDLCategory = "SDL";
