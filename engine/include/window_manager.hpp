@@ -7,6 +7,8 @@ namespace Universe::Graphic {
 class WindowManager {
  public:
   WindowManager(SDL_Window* window);
+  void stop() noexcept;
+  ~WindowManager() noexcept;
 
  private:
   bool running_;

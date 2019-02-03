@@ -24,4 +24,16 @@ void WindowManager::startRenderingThread() {
     }
   });
 }
+
+void WindowManager::stop() noexcept {
+  if (!running_) {
+	return;
+  }
+  running_ = false;
+  renderingThread_->join();
+}
+
+WindowManager::~WindowManager() noexcept {
+  stop();
+}
 }  // namespace Universe::Graphic
