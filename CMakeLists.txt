@@ -9,7 +9,6 @@ HunterGate(
 )
 
 project(MyUniverse)
-
 add_subdirectory(engine)
 
 add_executable(
@@ -20,3 +19,9 @@ add_executable(
 target_link_libraries("${CMAKE_PROJECT_NAME}" engine)
 
 format("${CMAKE_PROJECT_NAME}")
+
+install(TARGETS "${CMAKE_PROJECT_NAME}"
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+)
+
+include(CPack)

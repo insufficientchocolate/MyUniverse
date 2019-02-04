@@ -32,3 +32,12 @@ target_link_libraries(
 
 target_include_directories("${PROJECT_NAME}" PUBLIC $<BUILD_INTERFACE: include> $<INSTALL_INTERFACE: include>)
 target_compile_definitions("${PROJECT_NAME}" PRIVATE BOOST_ERROR_CODE_HEADER_ONLY DBOOST_SYSTEM_NO_DEPRECATE)
+
+include(GNUInstallDirs)
+
+install(
+  TARGETS
+  "${PROJECT_NAME}"
+  ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+
