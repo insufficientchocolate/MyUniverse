@@ -4,7 +4,7 @@ namespace Universe::Event {
 template <class T>
 class Event {
  public:
-  T getType();
+  virtual T getType() const = 0;
 };
 };  // namespace Universe::Event
 #endif

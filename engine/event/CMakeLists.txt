@@ -6,6 +6,8 @@ add_library(
   include/universe/engine/event/event.hpp
   include/universe/engine/event/base_event_bus.hpp
   include/universe/engine/event/sdl_event_bus.hpp
+  include/universe/engine/event/sdl_custom_event.hpp
+  include/universe/engine/event/sdl_custom_event_type_assigner.hpp
   sdl_event_bus.cc
 )
 

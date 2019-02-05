@@ -9,6 +9,8 @@ class SDLEventBus : public BaseEventBus<Uint32>,
                     public std::enable_shared_from_this<SDLEventBus> {
  public:
   typedef std::shared_ptr<SDLEventBus> Pointer;
+  void dispatch(
+      const typename BaseEventBus<Uint32>::EventPointer e) const override;
   static Pointer getInstance();
 
  private:

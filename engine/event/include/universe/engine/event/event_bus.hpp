@@ -10,9 +10,9 @@ template <class T>
 class EventBus {
  public:
   typedef Event<T> EventType;
-  typedef std::function<void(std::shared_ptr<const EventType>)>
-      EventListenerType;
-  virtual void dispatch(const std::shared_ptr<const EventType> event) const = 0;
+  typedef std::shared_ptr<const EventType> EventPointer;
+  typedef std::function<void(EventPointer)> EventListenerType;
+  virtual void dispatch(const EventPointer) const = 0;
   virtual void registerListener(EventListenerType callback) = 0;
 };
 };  // namespace Universe::Event

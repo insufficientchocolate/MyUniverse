@@ -6,8 +6,7 @@ namespace Universe::Event {
 template <class T>
 class BaseEventBus : public EventBus<T> {
  public:
-  virtual void dispatch(
-      const std::shared_ptr<const typename EventBus<T>::EventType> e) const {
+  virtual void dispatch(const typename EventBus<T>::EventPointer e) const {
     informListeners(e);
   }
 
@@ -17,7 +16,7 @@ class BaseEventBus : public EventBus<T> {
 
  protected:
   virtual void informListeners(
-      const std::shared_ptr<const typename EventBus<T>::EventType> e) const {
+      const typename EventBus<T>::EventPointer e) const {
     std::for_each(listeners_.begin(), listeners_.end(),
                   [&e](typename EventBus<T>::EventListenerType l) { l(e); });
   }
