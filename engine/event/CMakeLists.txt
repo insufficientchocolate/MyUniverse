@@ -4,6 +4,8 @@ add_library(
   "${PROJECT_NAME}"
   include/universe/engine/event/event_bus.hpp
   include/universe/engine/event/event.hpp
+  include/universe/engine/event/abstract_event_bus.hpp
+  include/universe/engine/event/sdl_event_bus.hpp
   sdl_event_bus.cc
 )
 

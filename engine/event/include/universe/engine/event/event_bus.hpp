@@ -10,9 +10,9 @@ namespace Universe::Event {
   class EventBus {
 	public:
 	  typedef Event<T> EventType;
-	  virtual void dispatch(const std::shared_ptr<const Event<T>> event) const = 0;
-	  template<class ET,class A = typename std::enable_if<std::is_base_of<EventType, ET>::type,T>::type>
-	  void registerListener(std::function<void(A)> callback);
+		typedef std::function<void(std::shared_ptr<const EventType>)> EventListenerType;
+	  virtual void dispatch(const std::shared_ptr<const EventType> event) const = 0;
+	  virtual void registerListener(EventListenerType callback) = 0;
   };
 };
-#endif /* EVENT_BUS_HPP */
+#endif

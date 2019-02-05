@@ -1,9 +1,1 @@
-#include <universe/engine/event/event_bus.hpp>
-#include <SDL.h>
-
-namespace Universe::Event {
-    class SDLEventBus: EventBus<Uint32>
-    {
-        
-    };
-};
+#include <universe/engine/event/sdl_event_bus.hpp>
