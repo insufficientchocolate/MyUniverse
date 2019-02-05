@@ -23,12 +23,16 @@ add_library(
   include/universe/engine/window_manager.hpp
 )
 
+add_subdirectory(event)
+
 target_link_libraries(
   "${PROJECT_NAME}"
   SDL2::SDL2
   OpenGL::GL
   glew::glew
-  Boost::filesystem)
+  Boost::filesystem
+  event
+)
 
 target_include_directories("${PROJECT_NAME}" PUBLIC $<BUILD_INTERFACE: include> $<INSTALL_INTERFACE: include>)
 target_compile_definitions("${PROJECT_NAME}" PRIVATE BOOST_ERROR_CODE_HEADER_ONLY DBOOST_SYSTEM_NO_DEPRECATE)
