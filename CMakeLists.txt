@@ -9,6 +9,13 @@ HunterGate(
 )
 
 project(MyUniverse)
+
+hunter_add_package(GTest)
+find_package(GTest CONFIG REQUIRED)
+
+enable_testing()
+include(GoogleTest)
+
 add_subdirectory(engine)
 
 add_executable(
