@@ -31,28 +31,28 @@ matrix:
     # Linux {
 
     - os: linux
-      env: EXAMPLE=01-executable TOOLCHAIN=gcc CONFIG=Release
+      env: TOOLCHAIN=gcc CONFIG=Release
 
     - os: linux
-      env: EXAMPLE=01-executable TOOLCHAIN=android-ndk-r15c-api-21-armeabi-v7a-neon-clang-libcxx CONFIG=Release
+      env: TOOLCHAIN=android-ndk-r15c-api-21-armeabi-v7a-neon-clang-libcxx CONFIG=Release
 
     - os: linux
-      env: EXAMPLE=01-executable TOOLCHAIN=gcc-5-cxx14-c11 CONFIG=Release
+      env: TOOLCHAIN=gcc-5-cxx14-c11 CONFIG=Release
 
     - os: linux
-      env: EXAMPLE=01-executable TOOLCHAIN=gcc-7-cxx17 CONFIG=Release
+      env: TOOLCHAIN=gcc-7-cxx17 CONFIG=Release
 
     # Clang5 included in Travis CI trusty image
     - os: linux
-      env: EXAMPLE=01-executable TOOLCHAIN=clang-5-cxx14 CONFIG=Release
+      env: TOOLCHAIN=clang-5-cxx14 CONFIG=Release
     - os: linux
-      env: EXAMPLE=01-executable TOOLCHAIN=clang-5-cxx17 CONFIG=Release
+      env: TOOLCHAIN=clang-5-cxx17 CONFIG=Release
 
     - os: linux
-      env: EXAMPLE=02-library TOOLCHAIN=gcc CONFIG=Release
+      env: TOOLCHAIN=gcc CONFIG=Release
 
     - os: linux
-      env: EXAMPLE=03-shared-link TOOLCHAIN=gcc CONFIG=Release
+      env: TOOLCHAIN=gcc CONFIG=Release
 
     # }
 
@@ -60,19 +60,19 @@ matrix:
 
     - os: osx
       osx_image: xcode9.4
-      env: EXAMPLE=01-executable TOOLCHAIN=osx-10-13 CONFIG=Release
+      env: TOOLCHAIN=osx-10-13 CONFIG=Release
 
     - os: osx
       osx_image: xcode9.4
-      env: EXAMPLE=01-executable TOOLCHAIN=ios-nocodesign-11-4-dep-9-3-armv7 CONFIG=Release
+      env: TOOLCHAIN=ios-nocodesign-11-4-dep-9-3-armv7 CONFIG=Release
 
     - os: osx
       osx_image: xcode10.1
-      env: EXAMPLE=01-executable TOOLCHAIN=ios-nocodesign-12-1-dep-9-3-armv7 CONFIG=Release
+      env: TOOLCHAIN=ios-nocodesign-12-1-dep-9-3-armv7 CONFIG=Release
 
     - os: osx
       osx_image: xcode9.4
-      env: EXAMPLE=04-framework TOOLCHAIN=ios-nocodesign-11-4-dep-9-3 CONFIG=Release
+      env: TOOLCHAIN=ios-nocodesign-11-4-dep-9-3 CONFIG=Release
 
     # }
 
@@ -108,7 +108,6 @@ install:
 script:
   - >
     python3 "${POLLY_SOURCE_DIR}/bin/build.py"
-    --home examples/${EXAMPLE}
     --toolchain ${TOOLCHAIN}
     --config ${CONFIG}
     --ios-multiarch
