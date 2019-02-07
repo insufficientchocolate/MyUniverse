@@ -22,11 +22,6 @@ addons:
       - gcc-5
       - g++-7
       - gcc-7
-      # OpenGL (software rendering)
-      - mesa-utils
-      - libgl1-mesa-swx11
-      - libgl1-mesa-swx11-dev
-      - xvfb
 
 dist:
   - trusty
