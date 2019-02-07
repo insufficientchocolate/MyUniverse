@@ -35,8 +35,8 @@ matrix:
   include:
     # Linux {
 
-    - os: linux
-      env: TOOLCHAIN=gcc CONFIG=Release
+    # - os: linux
+    #   env: TOOLCHAIN=gcc CONFIG=Release
 
     - os: linux
       env: TOOLCHAIN=android-ndk-r15c-api-21-armeabi-v7a-neon-clang-libcxx CONFIG=Release
@@ -52,12 +52,6 @@ matrix:
       env: TOOLCHAIN=clang-5-cxx14 CONFIG=Release
     - os: linux
       env: TOOLCHAIN=clang-5-cxx17 CONFIG=Release
-
-    - os: linux
-      env: TOOLCHAIN=gcc CONFIG=Release
-
-    - os: linux
-      env: TOOLCHAIN=gcc CONFIG=Release
 
     # }
 
