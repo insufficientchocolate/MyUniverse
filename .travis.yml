@@ -23,9 +23,6 @@ addons:
       - g++-7
       - gcc-7
 
-      # OpenGL
-      - xvfb
-
 dist:
   - trusty
 
