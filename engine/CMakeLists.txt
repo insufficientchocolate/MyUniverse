@@ -1,4 +1,4 @@
-project(engine CXX)
+project(engine)
 
 hunter_add_package(SDL2)
 hunter_add_package(glew)

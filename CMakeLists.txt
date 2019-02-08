@@ -8,7 +8,7 @@ HunterGate(
     SHA1 "ee80dc91f91f5eb6892f80a0a92c83b4de8e980a"
 )
 
-project(MyUniverse CXX)
+project(MyUniverse)
 
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
