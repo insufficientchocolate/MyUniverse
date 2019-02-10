@@ -4,7 +4,8 @@
 #include "base_event_bus.hpp"
 #include "event_bus.hpp"
 
-namespace Universe::Event {
+namespace Universe {
+namespace Event {
 class SDLEventBus : public BaseEventBus<Uint32>,
                     public std::enable_shared_from_this<SDLEventBus> {
  public:
@@ -17,4 +18,5 @@ class SDLEventBus : public BaseEventBus<Uint32>,
   SDLEventBus();
   static std::weak_ptr<SDLEventBus> instance;
 };
-};  // namespace Universe::Event
+};  // namespace Event
+};  // namespace Universe

@@ -3,7 +3,8 @@
 #include <SDL.h>
 #include <memory>
 #include <thread>
-namespace Universe::Graphic {
+namespace Universe {
+namespace Graphic {
 class WindowManager {
  public:
   WindowManager(SDL_Window* window);
@@ -16,5 +17,6 @@ class WindowManager {
   SDL_Window* window_;
   std::unique_ptr<std::thread> renderingThread_;
 };
-};  // namespace Universe::Graphic
+};  // namespace Graphic
+};  // namespace Universe
 #endif

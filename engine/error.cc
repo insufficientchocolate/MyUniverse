@@ -1,7 +1,8 @@
-#include <universe/engine/error.hpp>
 #include <sstream>
+#include <universe/engine/error.hpp>
 
-namespace Universe::Errors {
+namespace Universe {
+namespace Errors {
 static std::string join(std::vector<std::string> categories) {
   std::stringstream ss;
   for (int i = 0; i < categories.size(); i++) {
@@ -32,4 +33,5 @@ const char* Error::what() const noexcept {
      << " reason: " << std::runtime_error::what();
   return ss.str().c_str();
 }
-};  // namespace Universe::Errors
+};  // namespace Errors
+};  // namespace Universe

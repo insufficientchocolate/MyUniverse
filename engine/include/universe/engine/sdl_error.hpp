@@ -3,10 +3,13 @@
 #include <stdexcept>
 #include "error.hpp"
 
-namespace Universe::Errors {
+namespace Universe {
+namespace Errors {
 class SDLError : public Error {
  public:
   SDLError(const std::string& category);
 };
-};  // namespace Universe::Errors
+};  // namespace Errors
+};  // namespace Universe
+
 #endif

@@ -2,8 +2,8 @@
 #include <iostream>
 #include <stdexcept>
 #include <universe/engine/error.hpp>
-#include <universe/engine/window_manager.hpp>
 #include <universe/engine/main_render.hpp>
+#include <universe/engine/window_manager.hpp>
 
 namespace Universe::Graphic {
 WindowManager::WindowManager(SDL_Window* window)
@@ -27,13 +27,11 @@ void WindowManager::startRenderingThread() {
 
 void WindowManager::stop() noexcept {
   if (!running_) {
-	return;
+    return;
   }
   running_ = false;
   renderingThread_->join();
 }
 
-WindowManager::~WindowManager() noexcept {
-  stop();
-}
+WindowManager::~WindowManager() noexcept { stop(); }
 }  // namespace Universe::Graphic

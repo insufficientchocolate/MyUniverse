@@ -2,8 +2,10 @@
 #include <sstream>
 #include <universe/engine/sdl_error.hpp>
 
-namespace Universe::Errors {
+namespace Universe {
+namespace Errors {
 static const char* kSDLCategory = "SDL";
 SDLError::SDLError(const std::string& category)
     : Error({kSDLCategory, category}, SDL_GetError()){};
-};  // namespace Universe::Errors
+};  // namespace Errors
+};  // namespace Universe

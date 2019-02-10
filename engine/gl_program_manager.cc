@@ -3,8 +3,8 @@
 #include <sstream>
 #include <vector>
 
-#include <universe/engine/gl_program_manager.hpp>
 #include <universe/engine/error.hpp>
+#include <universe/engine/gl_program_manager.hpp>
 
 namespace Universe {
 GLProgramManager::GLProgramManager(const std::string& shaderDirectory)

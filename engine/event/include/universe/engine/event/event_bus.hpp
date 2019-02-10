@@ -5,7 +5,8 @@
 #include <type_traits>
 #include "event.hpp"
 
-namespace Universe::Event {
+namespace Universe {
+namespace Event {
 template <class T>
 class EventBus {
  public:
@@ -15,5 +16,6 @@ class EventBus {
   virtual void dispatch(const EventPointer) const = 0;
   virtual void registerListener(EventListenerType callback) = 0;
 };
-};  // namespace Universe::Event
+}  // namespace Event
+};  // namespace Universe
 #endif

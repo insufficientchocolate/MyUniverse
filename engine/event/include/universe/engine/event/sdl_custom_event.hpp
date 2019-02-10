@@ -3,7 +3,8 @@
 #include "event.hpp"
 #include "sdl_custom_event_type_assigner.hpp"
 
-namespace Universe::Event {
+namespace Universe {
+namespace Event {
 template <class D, class Assigner = SDLCustomEventTypeAssigner>
 class SDLCustomEvent : public Event<Uint32> {
  public:
@@ -16,5 +17,6 @@ class SDLCustomEvent : public Event<Uint32> {
     return eventType->type;
   };
 };
-};  // namespace Universe::Event
+};  // namespace Event
+};  // namespace Universe
 #endif

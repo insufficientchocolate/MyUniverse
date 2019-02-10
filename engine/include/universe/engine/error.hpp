@@ -4,7 +4,8 @@
 #include <string>
 #include <vector>
 
-namespace Universe::Errors {
+namespace Universe {
+namespace Errors {
 class Error : public std::runtime_error {
  public:
   Error(const std::string& category);
@@ -19,6 +20,7 @@ class Error : public std::runtime_error {
  private:
   const std::string category_;
 };
-};  // namespace Universe::Errors
+};  // namespace Errors
+};  // namespace Universe
 
 #endif
